@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <b>1. Create 2 objects - parent and child. Attach methods to
+         parent and use those methods in child object using parents prototype</b>
+
+         <pre>
+            const parent={
+                calc(){
+                    console.log(`${this.firstname} ${this.lastname}`)
+                }
+            }
+            const child1=Object.create(parent);
+            child1.firstname="Harika";
+            child1.lastname="Hamsa";
+            child1.calc();
+            const child2=Object.create(child1);
+            child2.firstname="Jyothi"
+            child2.calc();
+            Output:
+            Harika Hamsa
+            Jyothi Hamsa
+    
+         </pre>
+         
+    <b>2. Write code to explain prototype chaining</b>
+
+    <pre>
+        const obj = {
+            a: 1,
+            b: 2,
+            d: 8,
+            __proto__: {
+              b: 3,
+              c: 4,
+              __proto____proto__:{
+                b:5,
+                d:6,
+              }
+            },
+          };
+          console.log(obj.a);
+          console.log(obj.b);
+          console.log(obj.c);
+          console.log(obj.d);
+          Output:
+          1
+          2
+          4
+          8
+    </pre>
+    <b>3. Add a method to calculate sum of all elements in Array in array's protype,
+         use that method to calculate sum for multiple arrays</b>
+
+         <pre>
+            const Addsum={
+                add:function(a){
+                    let sum=0;
+                    for(let i=0;i<a.length;i++){
+                        sum=sum+a[i];
+                    }
+                    console.log(sum);
+                }
+             }
+             Addsum.add([1,2,3,4,5]);
+
+             output:- 15
+         </pre>
+    <b>4. Write a JavaScript function to retrieve all the names of object's own 
+        and inherited properties.</b>
+
+        <pre>
+            const obj1 = {
+                a: 1,
+                toString(){
+                   return `[object obj1]`;
+                }
+               
+              };
+              
+              console.log(Object.getOwnPropertyNames(obj1));
+              obj1.toString();
+            
+             output:
+              ['a', 'toString']
+
+        </pre>
+</body>
+</html>
